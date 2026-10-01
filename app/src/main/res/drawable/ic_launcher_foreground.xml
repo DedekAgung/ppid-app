@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- huruf "P" sederhana sebagai ikon, bisa diganti file PNG sendiri -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,32 h14 a16,16 0 0 1 0,32 h-7 v12 h-7 z M47,39 v18 h7 a9,9 0 0 0 0,-18 z" />
+</vector>
