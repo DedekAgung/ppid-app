@@ -93,3 +93,18 @@ ppid-app/
 ./gradlew assembleRelease
 # hasil: app/build/outputs/apk/release/app-release.apk
 ```
+
+---
+
+## Status Build
+
+✅ **Build berhasil** — APK tersedia.
+
+- Run terakhir: https://github.com/DedekAgung/ppid-app/actions
+- Download APK: tab **Actions** → pilih run terbaru → **Artifacts** → `PPID-BPMPSUMSEL-apk`
+- Ukuran: release **2.5 MB**, debug 3.2 MB
+- `applicationId`: `id.ppid.bpmpsumsel`
+
+### Riwayat perbaikan build
+1. `android-actions/setup-android@v3` gagal (`Failed to find package 'tools'`) → dihapus, karena runner `ubuntu-latest` sudah punya Android SDK.
+2. `checkDebugDuplicateClasses` gagal (konflik kotlin-stdlib 1.8.22 vs jdk7/jdk8 1.6.21) → diperbaiki dengan `resolutionStrategy.force`.
