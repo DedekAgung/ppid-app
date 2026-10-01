@@ -18,17 +18,16 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
+      # Runner ubuntu-latest sudah punya Android SDK preinstalled,
+      # cukup pastikan ANDROID_HOME tersedia.
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --no-daemon
+        run: ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Build Release APK
-        run: ./gradlew assembleRelease --no-daemon
+        run: ./gradlew assembleRelease --no-daemon --stacktrace
 
       - name: Rename APKs
         run: |
@@ -42,6 +41,7 @@ jobs:
         with:
           name: PPID-BPMPSUMSEL-apk
           path: output/*.apk
+          if-no-files-found: warn
 
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
