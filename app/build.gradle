@@ -34,3 +34,12 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.core:core:1.13.1'
 }
+
+// Hindari konflik duplicate class kotlin-stdlib-jdk7/jdk8 vs kotlin-stdlib
+configurations.configureEach {
+    resolutionStrategy {
+        force 'org.jetbrains.kotlin:kotlin-stdlib:1.9.24'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24'
+        force 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24'
+    }
+}
